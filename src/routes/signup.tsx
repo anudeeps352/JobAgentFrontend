@@ -10,14 +10,19 @@ function RouteComponent() {
   return (
     <AuthLayout
       title="HireTrack"
-      subtitle="Create your account"
+      subtitle="Create your account to start tracking"
       footer={
-        <p className="text-sm text-muted-foreground">
-          Already have an account?{' '}
-          <Link to="/login" className="text-primary hover:underline">
-            Sign in
-          </Link>
-        </p>
+        <>
+          <p className="text-sm text-muted-foreground">
+            Track smarter. Apply better.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Already have an account?{' '}
+            <Link to="/login" className="text-foreground hover:underline">
+              Sign in
+            </Link>
+          </p>
+        </>
       }
     >
       <SignupForm />

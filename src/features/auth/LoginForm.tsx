@@ -3,20 +3,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FcGoogle } from 'react-icons/fc';
 
-export function SignupForm() {
+export function LoginForm() {
   return (
     <form className="space-y-5">
-      <div className="space-y-2">
-        <Label htmlFor="fullname" className="text-muted-foreground text-xs">
-          FULL NAME
-        </Label>
-        <Input
-          id="fullname"
-          type="fullname"
-          placeholder="Max Miller"
-          className="bg-background"
-        ></Input>
-      </div>
       <div className="space-y-2">
         <Label htmlFor="email" className="text-muted-foreground text-xs">
           EMAIL ADDRESS
@@ -33,6 +22,12 @@ export function SignupForm() {
           <Label htmlFor="password" className="text-muted-foreground text-xs">
             PASSWORD
           </Label>
+          <button
+            type="button"
+            className="text-xs text-primary hover:underline"
+          >
+            FORGOT?
+          </button>
         </div>
         <Input
           id="password"
@@ -42,7 +37,7 @@ export function SignupForm() {
         ></Input>
       </div>
       <Button className="w-full flex items-center gap-2 shadow-sm py-6">
-        Create Account
+        Continue
       </Button>
       <div className="relative py-2">
         <div className="absolute inset-0 flex items-center">
@@ -54,12 +49,9 @@ export function SignupForm() {
           </span>
         </div>
       </div>
-      <Button
-        variant="outline"
-        className="w-full flex items-center gap-2 py-5 "
-      >
+      <Button variant="outline" className="w-full flex items-center gap-2 py-5">
         <FcGoogle />
-        Google
+        Continue with Google
       </Button>
     </form>
   );

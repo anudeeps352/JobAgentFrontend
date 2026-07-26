@@ -14,9 +14,18 @@ export function AuthLayout({
   footer,
 }: Readonly<AuthLayoutProps>) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="flex w-full max-w-sm flex-col items-center gap-2">
-        <div className="flex flex-col items-center gap-2 ">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
+      {/* Gradient glow layer */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 800px 500px at 50% 50%, oklch(0.556 0.238 293.7 / 6%), transparent 70%)',
+        }}
+      />
+
+      <div className="relative z-10 flex w-full max-w-sm flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-1.5 py-6 ">
           <div className="flex size-10 items-center justify-center rounded-full bg-primary">
             <BriefcaseBusiness className="size-6 text-primary-foreground" />
           </div>
@@ -27,7 +36,7 @@ export function AuthLayout({
           {children}
         </div>
         {footer && (
-          <div className="flex flex-col items-center gap-1 text-center">
+          <div className="flex flex-col items-center gap-6 text-center py-7">
             {footer}
           </div>
         )}
