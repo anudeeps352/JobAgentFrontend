@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { AnalysisResult as Result } from '@/types/analysis';
 import JobDescriptionInput from '@/components/analyze/JobDescriptionInput';
 import ResumeSelector from '@/components/analyze/ResumeSelector';
-import AnalyzeResult from '@/components/analyze/Analyzeresult';
+import AnalyzeResult from '@/components/analyze/AnalyzeResult';
 import EmptyAnalysis from '@/components/analyze/EmptyAnalysis';
 
 const resumes = [
