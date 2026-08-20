@@ -15,7 +15,7 @@ export default function DangerZone() {
           <h2 className="text-lg font-semibold text-red-400">Danger Zone</h2>
 
           <p className="mt-2 text-sm text-zinc-500">
-            Permanently delete all resumes, analyses, and application history.
+            Permanently delete all resumes, analyses, and application records.
             This action cannot be undone.
           </p>
 

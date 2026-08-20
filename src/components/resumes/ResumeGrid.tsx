@@ -5,10 +5,6 @@ interface ResumeGridProps {
   resumes: Resume[];
 }
 
-interface ResumeGridProps {
-  resumes: Resume[];
-}
-
 export default function ResumeGrid({ resumes }: Readonly<ResumeGridProps>) {
   return (
     <div>

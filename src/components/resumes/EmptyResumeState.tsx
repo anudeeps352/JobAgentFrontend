@@ -1,13 +1,17 @@
 import { ImageIcon } from 'lucide-react';
 
-export default function EmptyResumeState() {
+interface Props {
+  onUploadClick: () => void;
+}
+
+export default function EmptyResumeState({ onUploadClick }: Readonly<Props>) {
   return (
     <div>
       <p className="mb-5 text-xs uppercase tracking-[0.3em] text-zinc-500">
-        Empty State Preview
+        No Documents Yet
       </p>
 
-      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900">
+      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-xl border border-dashed border-zinc-800 bg-zinc-900">
         <div className="rounded-xl bg-zinc-800 p-10">
           <ImageIcon size={120} className="text-zinc-600" />
         </div>
@@ -21,7 +25,11 @@ export default function EmptyResumeState() {
           and give you tailored insights.
         </p>
 
-        <button className="mt-8 rounded-lg bg-violet-600 px-8 py-3 hover:bg-violet-500">
+        <button
+          type="button"
+          onClick={onUploadClick}
+          className="mt-8 rounded-lg bg-violet-600 px-8 py-3 transition-colors hover:bg-violet-500"
+        >
           Upload Now
         </button>
       </div>

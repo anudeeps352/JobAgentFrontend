@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
 
-import type { Application } from '@/types/history';
+import type { Application } from '@/types/application';
 
 interface Props {
   application: Application;
@@ -41,7 +41,7 @@ export default function ApplicationRow({ application }: Props) {
 
         {/* Match Score */}
         <Badge className="w-fit bg-emerald-500/15 text-emerald-400">
-          {application.score}%
+          {application.score}/10
         </Badge>
 
         {/* Resume */}
@@ -68,6 +68,10 @@ export default function ApplicationRow({ application }: Props) {
             application.status === 'OA' && 'bg-amber-500/15 text-amber-400',
 
             application.status === 'Ghosted' && 'bg-zinc-700 text-zinc-300',
+
+            application.status === 'Planned' && 'bg-zinc-700 text-zinc-300',
+
+            application.status === 'Withdrawn' && 'bg-zinc-700 text-zinc-300',
           )}
         >
           {application.status}

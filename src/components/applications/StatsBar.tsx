@@ -1,6 +1,13 @@
 import { Briefcase, TrendingUp, Trophy } from 'lucide-react';
 
-export default function StatsBar() {
+interface Props {
+  applications: Array<{ status: string }>;
+}
+
+export default function StatsBar({ applications }: Props) {
+  const offers = applications.filter((item) => item.status.toLowerCase() === 'offer').length;
+  const responses = applications.filter((item) => ['oa', 'interviewing', 'offer', 'rejected'].includes(item.status.toLowerCase())).length;
+  const responseRate = applications.length ? Math.round((responses / applications.length) * 100) : 0;
   return (
     <div className="grid gap-4 md:grid-cols-3">
       <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
@@ -10,7 +17,7 @@ export default function StatsBar() {
           </div>
 
           <div>
-            <p className="text-2xl font-bold">32</p>
+            <p className="text-2xl font-bold">{applications.length}</p>
             <p className="text-xs uppercase tracking-widest text-zinc-500">
               Applications
             </p>
@@ -25,7 +32,7 @@ export default function StatsBar() {
           </div>
 
           <div>
-            <p className="text-2xl font-bold">68%</p>
+            <p className="text-2xl font-bold">{responseRate}%</p>
             <p className="text-xs uppercase tracking-widest text-zinc-500">
               Response Rate
             </p>
@@ -40,7 +47,7 @@ export default function StatsBar() {
           </div>
 
           <div>
-            <p className="text-2xl font-bold">3</p>
+            <p className="text-2xl font-bold">{offers}</p>
             <p className="text-xs uppercase tracking-widest text-zinc-500">
               Offers
             </p>
