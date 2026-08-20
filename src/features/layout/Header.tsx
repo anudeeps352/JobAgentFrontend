@@ -5,9 +5,9 @@ import { BriefcaseBusiness } from 'lucide-react';
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard' },
+  { to: '/applications', label: 'Applications' },
   { to: '/resumes', label: 'Resumes' },
   { to: '/analyze', label: 'Analyze' },
-  { to: '/history', label: 'History' },
   { to: '/settings', label: 'Settings' },
 ];
 

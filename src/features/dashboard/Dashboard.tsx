@@ -62,6 +62,9 @@ const normalizeApplicationStatus = (status: string): ApplicationStatus => {
   }
 };
 
+const normalizeMatchScore = (score: number) =>
+  score <= 10 ? score * 10 : score;
+
 const statColors = ['purple', 'green', 'red', 'purple'] as const;
 
 const statSparklineData = [
@@ -111,7 +114,7 @@ export function Dashboard() {
       variant: 'outline' as const,
     },
     {
-      label: 'View History',
+      label: 'View Applications',
       icon: <History className="size-4" />,
       variant: 'outline' as const,
     },
@@ -162,7 +165,7 @@ export function Dashboard() {
       company: app.company,
       companyInitials: app.company_initials,
       role: app.role,
-      matchScore: app.match_score,
+      matchScore: normalizeMatchScore(app.match_score),
       status: normalizeApplicationStatus(app.status),
       date: app.date,
     })) ?? [];

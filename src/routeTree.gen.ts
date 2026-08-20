@@ -13,8 +13,8 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ResumesRouteImport } from './routes/resumes'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as HistoryRouteImport } from './routes/history'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ApplicationsRouteImport } from './routes/applications'
 import { Route as AnalyzeRouteImport } from './routes/analyze'
 
 const SignupRoute = SignupRouteImport.update({
@@ -37,14 +37,14 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HistoryRoute = HistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnalyzeRoute = AnalyzeRouteImport.update({
@@ -55,8 +55,8 @@ const AnalyzeRoute = AnalyzeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/analyze': typeof AnalyzeRoute
+  '/applications': typeof ApplicationsRoute
   '/dashboard': typeof DashboardRoute
-  '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
   '/resumes': typeof ResumesRoute
   '/settings': typeof SettingsRoute
@@ -64,8 +64,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/analyze': typeof AnalyzeRoute
+  '/applications': typeof ApplicationsRoute
   '/dashboard': typeof DashboardRoute
-  '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
   '/resumes': typeof ResumesRoute
   '/settings': typeof SettingsRoute
@@ -74,8 +74,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/analyze': typeof AnalyzeRoute
+  '/applications': typeof ApplicationsRoute
   '/dashboard': typeof DashboardRoute
-  '/history': typeof HistoryRoute
   '/login': typeof LoginRoute
   '/resumes': typeof ResumesRoute
   '/settings': typeof SettingsRoute
@@ -85,8 +85,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/analyze'
+    | '/applications'
     | '/dashboard'
-    | '/history'
     | '/login'
     | '/resumes'
     | '/settings'
@@ -94,8 +94,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/analyze'
+    | '/applications'
     | '/dashboard'
-    | '/history'
     | '/login'
     | '/resumes'
     | '/settings'
@@ -103,8 +103,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/analyze'
+    | '/applications'
     | '/dashboard'
-    | '/history'
     | '/login'
     | '/resumes'
     | '/settings'
@@ -113,8 +113,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   AnalyzeRoute: typeof AnalyzeRoute
+  ApplicationsRoute: typeof ApplicationsRoute
   DashboardRoute: typeof DashboardRoute
-  HistoryRoute: typeof HistoryRoute
   LoginRoute: typeof LoginRoute
   ResumesRoute: typeof ResumesRoute
   SettingsRoute: typeof SettingsRoute
@@ -151,18 +151,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/history': {
-      id: '/history'
-      path: '/history'
-      fullPath: '/history'
-      preLoaderRoute: typeof HistoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/analyze': {
@@ -177,8 +177,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   AnalyzeRoute: AnalyzeRoute,
+  ApplicationsRoute: ApplicationsRoute,
   DashboardRoute: DashboardRoute,
-  HistoryRoute: HistoryRoute,
   LoginRoute: LoginRoute,
   ResumesRoute: ResumesRoute,
   SettingsRoute: SettingsRoute,

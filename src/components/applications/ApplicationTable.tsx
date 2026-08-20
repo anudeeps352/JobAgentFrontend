@@ -1,4 +1,4 @@
-import type { Application } from '@/types/history';
+import type { Application } from '@/types/application';
 import ApplicationRow from './ApplicationRow';
 
 interface Props {
